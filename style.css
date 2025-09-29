@@ -1,0 +1,1116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: padding 0.2s ease-in, margin 0.2s ease-in;
+}
+
+:root {
+    --font-family: "Poppins", sans-serif;
+    --second-family: "Inter", sans-serif;
+    --primary-blue: #0578ff;
+    --white: #fff;
+    --primary-grey-50: rgba(144, 163, 191, 0.5);
+    --primary-black: #202020;
+    --primary-black-50: rgba(32, 32, 32, 0.5);
+    --radio-checked: #006AF5;
+    --font-size-input: 0.875rem;
+    --hover-grey: #e2e8ef;
+    --green: #43a047;
+    --primary-grey: #90a3bf;
+    --good-yellow: #ffc501;
+}
+
+
+/*MAIN ELEMENTS STYLES*/
+html {
+    scroll-behavior: smooth;
+}
+
+html.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
+    scroll-behavior: initial;
+}
+
+body {
+    background: linear-gradient(180deg, #f5f5f5 0%, #ddecff 50.17%, #f5f5f5 100%) repeat-x, #f5f5f5;
+    background-size: auto 2389px;
+    color: var(--primary-black);
+    max-width: 1440px;
+    margin: 0 auto;
+    font-family: var(--font-family);
+    font-size: 1rem;
+}
+
+a {
+    color: var(--primary-black);
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+a:hover, summary:hover {
+    color: var(--green);
+}
+
+a:not(.header-logo):active {
+    transform: scale(0.95);
+}
+
+.title {
+    font-weight: 700;
+    font-size: 4rem;
+    transition: all 0.2s ease-in-out;
+}
+
+button {
+    background: var(--primary-blue);
+    border-radius: 10px;
+    padding: 16px 24px;
+    border: none;
+    cursor: pointer;
+    color: var(--white);
+    font-family: var(--font-family);
+    font-weight: bold;
+    font-size: 1.25rem;
+    transition: transform 0.1s ease-in-out, background 0.3s ease-in-out;
+}
+
+button:not(.reset-button):hover {
+    background: var(--green);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+input {
+    background-color: var(--white);
+    outline: 1px solid transparent;
+    border: none;
+    font-family: var(--font-family);
+    font-size: var(--font-size-input);
+    font-weight: 500;
+}
+
+input[type="text"], input[type="password"], input[type="date"] {
+    color: var(--primary-black);
+    border-radius: 10px;
+    padding: 16px 24px;
+    line-height: 150%;
+    width: 100%;
+    height: 53px;
+    transition: background-color 0.3s ease-in, outline-color 0.3s ease-in-out;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+    color: var(--primary-grey);
+}
+
+input[type="text"]#depart-date,
+input[type="text"]#return-date {
+    background: url("./assets/calendar.svg") no-repeat left 24px center, var(--white);
+    padding-left: 52px;
+}
+
+input[type="text"]#depart-date:hover,
+input[type="text"]#return-date:hover {
+    background: url("./assets/calendar.svg") no-repeat left 24px center, var(--hover-grey);
+}
+
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: var(--primary-grey-50);
+    border-radius: 100%;
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked {
+    background-color: var(--white);
+    border: 6px solid var(--radio-checked);
+}
+
+.inputDateFocus {
+    outline: 1px solid var(--primary-blue);
+}
+
+label {
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-input);
+    cursor: pointer;
+    min-height: 28px;
+}
+
+
+/*HEADER SECTION STYLES*/
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    height: 116px;
+    padding: 40px 64px;
+}
+
+.header-logo {
+    display: flex;
+    height: 51px;
+    font-size: 2.125rem;
+    margin-right: auto;
+}
+
+.header-navigation {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 610px;
+    height: 32px;
+    font-size: 1.25rem;
+    margin-left: 35px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 1, 1)
+}
+
+#burger-menu-button {
+    display: none;
+}
+
+#signup {
+    font-weight: 600;
+}
+
+.user-icon::after {
+    content: url("./assets/user-icon.svg");
+    margin-left: 8px;
+}
+
+
+/*MODAL WINDOW AND FORM STYLES*/
+dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100dvh;
+    border: 0;
+    background: var(--primary-grey-50);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+dialog[open].visible {
+    opacity: 1;
+}
+
+dialog::backdrop {
+    background: none;
+}
+
+.modal-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    max-width: 350px;
+    min-width: 260px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 30px;
+    background: var(--primary-grey-50);
+    border: 2px solid var(--primary-black-50);
+    border-radius: 10px;
+    padding: 30px;
+    pointer-events: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--white);
+    opacity: 0;
+    text-shadow: 0 0 4px var(--primary-black-50);
+    transition: all 0.3s ease;
+}
+
+.modal-form.visible {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+dialog button {
+    padding: 10px;
+}
+
+
+/*ORDER TICKETS FORM STYLES*/
+.find-alpine-ride-container {
+    display: flex;
+    gap: 32px;
+    padding: 64px 64px 128px;
+}
+
+.find-alpine-ride-content {
+    flex-grow: 1;
+}
+
+.find-alpine-ride-content-text {
+    margin: 32px 6px 32px 0;
+}
+
+.find-alpine-ride-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 346px;
+}
+
+.find-alpine-ride-radio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    background: var(--white);
+    border-radius: 10px;
+    padding: 3px 24px;
+    transition: background 0.3s ease-in-out;
+}
+
+.find-alpine-ride-radio:hover,
+input:not([type="radio"]):hover {
+    background-color: var(--hover-grey);
+}
+
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type='number'],
+input[type="number"]:hover,
+input[type="number"]:focus {
+    appearance: none;
+    -moz-appearance: textfield;
+    font-family: var(--second-family);
+    background: transparent;
+    width: 24px;
+    height: 20px;
+    color: var(--primary-black);
+    text-align: center
+}
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+    height: 28px;
+}
+
+#button-minus:active,
+#button-plus:active {
+    transform: scale(0.8);
+}
+
+#button-minus:hover,
+#button-plus:hover {
+    cursor: pointer;
+}
+
+.find-alpine-ride-data {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 24px 32px;
+    height: 202px;
+    font-weight: 600;
+}
+
+.find-alpine-ride-data-input {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.stations-list-container {
+    position: absolute;
+    z-index: 10;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 12px;
+    border: 12px solid var(--white);
+    border-radius: 12px;
+    max-height: 193px;
+    background: var(--white);
+    box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.16);
+    overflow: auto;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+.stations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    list-style-type: none;
+    font-size: var(--font-size-input);
+    font-weight: 400;
+    line-height: 171%;
+}
+
+.stations-list li {
+    padding: 2px 12px;
+    border-radius: 7px;
+    transition: background 0.2s ease-in-out;
+}
+
+.stations-list li:hover {
+    background: var(--hover-grey);
+    cursor: pointer;
+}
+
+.stations-list-not-found {
+    padding: 2px 12px;
+    color: var(--primary-grey);
+}
+
+.date-container {
+    position: absolute;
+    z-index: 10;
+    top: 100%;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 32px;
+    margin-top: 12px;
+    padding-inline: 40px;
+    border-radius: 12px;
+    background: var(--white);
+    box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.16);
+    opacity: 1;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.month {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    text-align: center;
+    font-weight: 400;
+    padding-inline: 8px;
+}
+
+.month-title {
+    grid-column: 2 / 7;
+    font-size: 0.875rem;
+    line-height: 171%;
+    margin-top: 32px;
+    margin-bottom: 12px;
+}
+
+.month svg {
+    margin: 36px 4px 0;
+    cursor: pointer;
+}
+
+.month svg:active {
+    transform: scale(0.9);
+}
+
+.arrow-right {
+    justify-self: end;
+}
+
+.month span {
+    border-radius: 100%;
+    padding: 8px;
+    width: 32px;
+    height: 32px;
+    font-size: 0.75rem;
+    line-height: 133%;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.month span:not(.week span):hover {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+.week {
+    grid-column: span 7;
+    display: flex;
+    gap: 4px;
+}
+
+.week span {
+    color: var(--primary-black-50);
+    cursor: initial;
+}
+
+.calendar-buttons {
+    grid-column: 2 / 3;
+    justify-self: right;
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.calendar-buttons button {
+    width: 80px;
+    margin: 12px;
+    padding: 8px 12px;
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 133%;
+    text-align: center;
+}
+
+.reset-button {
+    color: var(--primary-black-50);
+    background-color: initial;
+    cursor: not-allowed;
+}
+
+.reset-button.active {
+    cursor: pointer;
+    color: var(--primary-black);
+}
+
+.reset-button.active:hover {
+    background-color: var(--hover-grey);
+}
+
+.check {
+    opacity: 0;
+    margin-left: 5px;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.visible {
+    opacity: 1;
+}
+
+.collapsed {
+    max-height: 0;
+    opacity: 0;
+    padding: 0;
+}
+
+
+/*INTERESTING FACTS SECTION STYLES*/
+.interesting-fact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 128px;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--primary-blue);
+    padding: 60px 64px;
+    font-weight: 500;
+    font-size: 1.25rem;
+    text-align: center;
+    color: var(--white);
+}
+
+.interesting-fact p:nth-child(odd) {
+    font-weight: 700;
+    font-size: 3.125rem;
+    width: 176px;
+}
+
+
+/*GALLERY SECTION STYLES*/
+.glimpses-of-glory {
+    padding: 128px 64px;
+}
+
+.glimpses-of-glory-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(auto, max-content));
+    gap: 24px 32px;
+    margin-top: 24px;
+}
+
+.glimpses-of-glory-gallery img {
+    border-radius: 10px;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.glimpses-of-glory-gallery img:nth-child(4) {
+    margin-top: -112px;
+}
+
+.glimpses-of-glory-gallery img:nth-child(5) {
+    grid-column: span 2;
+}
+
+
+/*DOWNLOAD APPS SECTION STYLES*/
+#downloads {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    align-items: center;
+    padding: 128px 120px;
+    background: var(--good-yellow);
+}
+
+#downloads h2 {
+    font-size: 3.875rem;
+    text-align: center;
+}
+
+.downloads-buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px 49px;
+    max-width: 863px;
+    width: 100%;
+}
+
+.downloads-buttons a img {
+    display: block;
+}
+
+
+/*FAQs SECTION STYLES*/
+#faqs {
+    padding: 128px 177px;
+    background: var(--white);
+}
+
+#faqs h2 {
+    margin-bottom: 40px;
+}
+
+details:not(:last-child) {
+    border-bottom: 1px solid var(--primary-black-50);
+}
+
+.details-answer {
+    line-height: 140%;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.details-answer-open {
+    padding: 16px 0px;
+    height: auto;
+    opacity: 1;
+}
+
+summary {
+    position: relative;
+    padding: 16px 0px;
+    height: 56px;
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 120%;
+    list-style: none;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+}
+
+summary::after {
+    content: url("./assets/plus.svg");
+    position: absolute;
+    margin: 0 6px;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+.summary-open::after {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+
+/*CONTACT SECTION STYLES*/
+.contacts-container {
+    position: relative;
+    height: 121px;
+    background: var(--white);
+}
+
+.contacts-bg-blue {
+    height: 404px;
+    background: var(--primary-blue);
+}
+
+#contacts {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--primary-black-50);
+    border-radius: 10px;
+    padding: 60px 30px;
+    max-width: 640px;
+    width: 100%;
+    background: var(--white);
+    text-align: center;
+    transition: max-width 0.2s ease-in;
+}
+
+#contacts .title {
+    line-height: 120%;
+    padding-bottom: 30px;
+}
+
+.contacts-number, .contacts-e-mail {
+    font-size: 1.75rem;
+    line-height: 140%;
+}
+
+.contacts-e-mail {
+    padding-top: 8px;
+}
+
+.contacts-address {
+    font-size: 1.125rem;
+    line-height: 150%;
+    padding-top: 30px;
+}
+
+
+/*FOOTER STYLES*/
+.footer {
+    padding: 64px;
+    min-height: 472px;
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+.footer a {
+    color: var(--white);
+}
+
+.footer a:hover {
+    color: var(--hover-grey);
+    text-shadow: 0 0 2px var(--primary-black-50);
+}
+
+.footer-group a:active {
+    font-size: 96%;
+}
+
+.footer-links {
+    display: flex;
+    gap: 32px;
+    min-height: 244px;
+    margin-bottom: 40px;
+}
+
+.footer-text {
+    font-weight: 600;
+    line-height: 150%;
+    letter-spacing: -0.02em;
+}
+
+.footer-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 244px;
+    flex-basis: 192px;
+}
+
+.footer-group p:first-child {
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 150%;
+    letter-spacing: -0.02em;
+}
+
+.footer-group-links {
+    display: flex;
+    justify-content: space-around;
+    height: 188px;
+    flex-direction: column;
+    font-weight: 500;
+    line-height: 150%;
+    letter-spacing: -0.02em;
+}
+
+
+@media (max-width: 1439px) {
+    .header-navigation {
+        width: 500px;
+    }
+
+    .hero-img {
+        display: none;
+    }
+
+    .date-container {
+        left: calc(50dvw - 64px);
+        transform: translateX(-50%);
+    }
+
+    .interesting-fact {
+        padding: 64px 32px;
+        justify-content: center;
+    }
+
+    .downloads-buttons {
+        justify-content: center;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .header-container,
+    .find-alpine-ride-container,
+    .glimpses-of-glory,
+    #faqs,
+    .footer {
+        padding-inline: 32px;
+    }
+
+
+    /*HEADER SECTION STYLES 768*/
+    .header-navigation {
+        height: 0;
+        width: 0;
+        margin-left: 0;
+        overflow: hidden;
+    }
+
+    .burger-menu {
+        position: fixed;
+        z-index: 10;
+        top: 116px;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: nowrap;
+        width: 100%;
+        height: 100dvh;
+        font-size: 1.25rem;
+        padding: 128px 32px 160px;
+        gap: 96px;
+        background: var(--primary-blue);
+        overflow: auto;
+    }
+
+    .burger-menu a {
+        font-size: 3rem;
+        line-height: 56%;
+        color: var(--white);
+    }
+
+    #burger-menu-button {
+        display: block;
+        margin-left: 20px;
+    }
+
+    .burger-lines {
+        transition: all 0.4s ease;
+        transform-origin: 50% 50%;
+        transform-box: fill-box;
+    }
+
+    .burger-active .top {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .burger-active .middle {
+        opacity: 0;
+    }
+
+    .burger-active .bottom {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    #signup {
+        font-weight: 400;
+    }
+
+    .user-icon::after {
+        display: none;
+    }
+
+
+    /*ORDER TICKETS FORM STYLES 768*/
+    .date-container {
+        padding-inline: 10px;
+        left: calc(50dvw - 32px);
+    }
+
+    /*GALLERY SECTION STYLES* 768*/
+    .glimpses-of-glory-gallery {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+
+    .glimpses-of-glory-gallery img {
+        width: 100%;
+    }
+
+    .glimpses-of-glory-gallery img:nth-child(1) {
+        grid-column: span 2;
+        height: 380px;
+        order: 1;
+    }
+
+    .glimpses-of-glory-gallery img:nth-child(4) {
+        grid-column: span 2;
+        margin-top: 0;
+        height: 362px;
+        order: 2;
+    }
+
+    .glimpses-of-glory-gallery img:nth-child(2) {
+        height: 425px;
+        order: 3;
+    }
+
+    .glimpses-of-glory-gallery img:nth-child(3) {
+        height: 425px;
+        order: 4;
+    }
+
+    .glimpses-of-glory-gallery img:nth-child(5) {
+        grid-column: span 2;
+        height: 225px;
+        order: 5;
+    }
+
+    /*DOWNLOAD APPS SECTION STYLES 768*/
+    #downloads {
+        gap: 32px;
+    }
+
+    #downloads h2 {
+        font-size: 2.5rem;
+    }
+
+    .downloads-buttons {
+        max-width: 462px;
+    }
+
+    /*CONTACTS SECTION STYLES 768*/
+    #contacts {
+        max-width: 464px;
+        width: 100%;
+    }
+
+    /*FOOTER STYLES 768*/
+    .footer-links {
+        flex-wrap: wrap;
+        row-gap: 40px;
+    }
+
+    .footer-links .header-logo {
+        margin-right: 100%;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .line-separator {
+        display: none;
+    }
+
+    .title {
+        font-size: 3rem;
+    }
+
+    /*ORDER TICKETS FORM STYLES 600*/
+    .find-alpine-ride-container {
+        padding-top: 24px;
+    }
+
+    .find-alpine-ride-form {
+        height: 536px;
+    }
+
+    .find-alpine-ride-radio {
+        padding-inline: 8px;
+        text-align: center;
+    }
+
+    .find-alpine-ride-data {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 53px;
+        height: 392px;
+    }
+
+    .date-container {
+        grid-template-columns: 1fr;
+        margin-top: 100px;
+    }
+
+    .calendar-buttons {
+        grid-column: span 1;
+    }
+
+
+    /*CONTACTS SECTION STYLES 600*/
+    #contacts {
+        max-width: 320px;
+    }
+
+    #contacts h2 {
+        font-size: 2.25rem;
+    }
+
+    .contacts-number, .contacts-e-mail {
+        font-size: 1.25rem;
+    }
+
+    .contacts-bg-blue {
+        height: 372px;
+    }
+}
+
+
+@media (max-width: 360px) {
+    .header-container,
+    .find-alpine-ride-container,
+    .footer {
+        padding-inline: 20px;
+    }
+
+
+    /*HEADER SECTION STYLES 360*/
+    .header-logo-text {
+        display: none;
+    }
+    .burger-menu {
+        gap: 64px;
+        padding-top: 64px;
+        padding-inline: 20px;
+    }
+
+    .burger-menu a {
+        font-size: 2rem;
+        line-height: 84%;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    /*ORDER TICKETS FORM STYLES 360*/
+    .find-alpine-ride-content-text {
+        font-size: 0.6875rem;
+        margin: 24px 0px 24px;
+    }
+
+    label {
+        font-size: 0.75rem;
+    }
+
+    .date-container {
+        left: calc(50dvw - 20px);
+    }
+
+
+    /*INTERESTING FACTS SECTION STYLE 360*/
+    .interesting-fact {
+        padding: 30px 20px;
+        gap: 30px 40px;
+        font-size: 1rem;
+    }
+
+    .interesting-fact p:nth-child(odd) {
+        font-size: 2.5rem;
+        width: 137px;
+    }
+
+
+    /*GALLERY SECTION STYLES 360*/
+    .glimpses-of-glory {
+        padding: 64px 20px;
+    }
+
+    .glimpses-of-glory-gallery {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .glimpses-of-glory-gallery img:nth-child(1) {
+        grid-column: span 1;
+        height: 220px;
+    }
+
+    .glimpses-of-glory-gallery img:nth-child(4) {
+        grid-column: span 1;
+        height: 209px;
+    }
+
+    .glimpses-of-glory-gallery img:nth-child(2) {
+        height: 472px;
+    }
+
+    .glimpses-of-glory-gallery img:nth-child(3) {
+        height: 637px;
+    }
+
+    .glimpses-of-glory-gallery img:nth-child(5) {
+        grid-column: span 1;
+        height: 141px;
+    }
+
+    /*DOWNLOAD APPS SECTION STYLES 360*/
+    #downloads {
+        padding: 32px 46px;
+    }
+
+    #downloads h2 {
+        font-size: 2rem;
+    }
+
+    .downloads-buttons a img {
+        height: 50px;
+    }
+
+    /*FAQs SECTION STYLES 360*/
+    #faqs {
+        padding: 64px 20px;
+    }
+
+    #faqs h2 {
+        font-size: 4rem;
+        margin-bottom: 32px;
+    }
+
+    /*FOOTER STYLES 360*/
+    .footer-links {
+        gap: 24px 40px;
+    }
+
+    .footer-links .header-logo {
+        margin-bottom: 16px;
+    }
+
+    .footer-group {
+        flex-basis: 140px;
+    }
+}

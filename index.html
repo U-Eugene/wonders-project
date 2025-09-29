@@ -6,8 +6,275 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Wonders - Homepage</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/svg+xml" media="(prefers-color-scheme: dark)" href="./assets/favicon-dark.svg">
+    <link rel="icon" type="image/svg+xml" media="(prefers-color-scheme: light)" href="./assets/favicon-light.svg">
+    <script src="script.js" defer></script>
 </head>
 <body>
-
+<header>
+    <div class="header-container">
+        <a class="header-logo" href="./" title="Go to homepage">
+            <svg width="73" height="34" style="margin: 7px 15px 0 0" viewBox="0 0 73 34" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M59.2163 24.5786V20.3137L56.8388 17.985L59.2303 19.3378V12.2281L50.3323 22.2163L47.6113 25.4222L51.3615 23.0116L46.9352 27.6512L46.2931 30H44.3848H40.4802H33.5049L40.4802 28.5327V25.9956V19.5777V3.49431L33.7795 13.7348H36.0542L32.6121 21.8674L29.3541 23.4939L32.1196 24.8199L31.2612 26.3138L28.935 30H25.2665H24.4466H14.3859L24.4466 29.253V25.2797L24.5119 18.2531L21.4236 18.705L24.5886 16.9879L24.6814 12.2594L17.9196 19.2773L18.288 20.9643L14.1075 24.278L16.0133 23.735L9.76091 30H6.27066H5.51648H0L6.36248 28.1088L9.55835 20.9632L13.1242 21.6868L25.2962 8.07215L30.4598 17.7102L32.3042 9.51804L39.5581 0H42.3856L45.4529 8.25277L49.3375 10.7306L50.8526 17.9356L59.2303 9.39784L62.1637 12.1666L68.4511 25.5421L73 30H61.1676H59.7997H59.2303H50.287L59.2303 29.0353V28.0559L56.1492 26.3138L59.2163 24.5786Z"
+                      fill="#202020"/>
+            </svg>
+            <span class="header-logo-text">Wonders</span>
+        </a>
+        <svg id="burger-menu-button" width="30" height="24" viewBox="0 0 30 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect class="burger-lines top" y="2" width="30" height="2" fill="#0578FF" rx="1" />
+            <rect class="burger-lines middle" y="11" width="16" height="2" fill="#0578FF" rx="1" />
+            <rect class="burger-lines bottom" y="20" width="30" height="2" fill="#0578FF" rx="1" />
+        </svg>
+        <nav class="header-navigation">
+            <a href="#downloads" title="Download Mobile App">Mobile App</a>
+            <a href="#faqs" title="FAQs">FAQs</a>
+            <a href="#contacts" title="Contact">Contact</a>
+            <a id="signup" href="./" title="Sign Up">Sign Up</a>
+        </nav>
+    </div>
+</header>
+<main>
+    <section class="find-alpine-ride-container">
+        <div class="find-alpine-ride-content">
+            <h1 class="title">Skip The Climbing, Catch The Bus</h1>
+            <p class="find-alpine-ride-content-text">We sell tickets to the best seats in the house – houses on wheels, that is! <br class="line-separator">
+                Get ready for jaw-dropping views without breaking a sweat.</p>
+            <form class="find-alpine-ride-form" action="/submit" method="post">
+                <div class="find-alpine-ride-radio">
+                    <label><input type="radio" name="direction" value="round" checked>Round trip</label>
+                    <label><input type="radio" name="direction" value="oneway">One Way</label>
+                    <div class="quantity-container">
+                        <svg width="18" height="24" style="margin-right: 6px" viewBox="0 0 18 24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="9" cy="7" r="4" fill="#0578FF"/>
+                            <path d="M3 20C1.89543 20 0.974346 19.0907 1.24685 18.0202C2.12788 14.5595 5.26504 12 9 12C12.735 12 15.8721 14.5595 16.7531 18.0202C17.0257 19.0907 16.1046 20 15 20H3Z"
+                                  fill="#0578FF"/>
+                        </svg>
+                        <svg id="button-minus" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.21994 9.21973C4.77994 9.21973 4.43994 9.55973 4.43994 9.99973C4.43994 10.4397 4.77994 10.7797 5.21994 10.7797H14.7799C15.2199 10.7797 15.5599 10.4397 15.5599 9.99973C15.5599 9.55973 15.2199 9.21973 14.7799 9.21973H9.21994H5.21994Z"
+                                  fill="#202020" fill-opacity="0.5"/>
+                        </svg>
+                        <input type="number" id="quantity" name="quantity" min="1" max="10" step="1" value="1"
+                               title="Enter the number of persons from 1 to 10">
+                        <svg id="button-plus" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.21859 9.2181H5.22354C4.79185 9.2181 4.44189 9.56805 4.44189 9.99974C4.44189 10.4314 4.79185 10.7814 5.22354 10.7814H9.21859V14.7764C9.21859 15.2081 9.56854 15.5581 10.0002 15.5581C10.4319 15.5581 10.7819 15.2081 10.7819 14.7764V10.7814H14.7769C15.2086 10.7814 15.5586 10.4314 15.5586 9.99974C15.5586 9.56805 15.2086 9.2181 14.7769 9.2181H10.7819V5.22305C10.7819 4.79136 10.4319 4.44141 10.0002 4.44141C9.56854 4.44141 9.21859 4.79136 9.21859 5.22305V9.2181Z"
+                                  fill="#0578FF"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="find-alpine-ride-data">
+                    <div class="find-alpine-ride-data-input">
+                        <p>Departure<span id="departure-check-icon" class="check"></span></p>
+                        <input type="text" id="departure" name="departure" maxlength="50" placeholder="Your City/Station" required>
+                        <div class="stations-list-container collapsed">
+                            <ul id="departure-stations-list" class="stations-list"></ul>
+                        </div>
+                    </div>
+                    <div class="find-alpine-ride-data-input">
+                        <p>Arrival<span id="arrival-check-icon" class="check"></span></p>
+                        <input type="text" id="arrival" name="arrival" maxlength="50" placeholder="Where to?" required>
+                        <div class="stations-list-container collapsed">
+                            <ul id="arrival-stations-list" class="stations-list"></ul>
+                        </div>
+                    </div>
+                    <div class="find-alpine-ride-data-input">
+                        <p>Pick your lucky day<span id="dates-check-icon" class="check"></span></p>
+                        <input type="text" id="depart-date" name="depart-date" placeholder="Depart" readonly required>
+                        <div tabindex="-1" class="date-container collapsed">
+                            <div id="days-first-month" class="month"></div>
+                            <div id="days-second-month" class="month"></div>
+                            <div class="calendar-buttons">
+                                <button id="reset-button" class="reset-button" type="button">Reset</button>
+                                <button id="apply-button" type="button">Apply</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="find-alpine-ride-data-input">
+                        <p class="line-separator"></p>
+                        <input type="text" id="return-date" name="return-date" placeholder="Return" readonly required>
+                    </div>
+                    <!--Шаблон месяца для календаря-->
+                    <template id="calendarTemplate">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.5 2L5.5 8L11.5 14" stroke="#202020" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <div class="month-title"></div>
+                        <svg class="arrow-right" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.5 14L11.5 8L5.5 2" stroke="#202020" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <div class="week"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+                    </template>
+                </div>
+                <button id="submit-button" type="submit">Find My Alpine Ride</button>
+            </form>
+        </div>
+        <img class="hero-img" width="640px" height="704px" src="./assets/hero.png" alt="Hero">
+    </section>
+    <section class="interesting-fact">
+        <div>
+            <p>68k+</p>
+            <p>Track kilometers</p>
+        </div>
+        <div>
+            <p>1.4M+</p>
+            <p>Photos Taken</p>
+        </div>
+        <div>
+            <p>23M+</p>
+            <p>Altitude Gained</p>
+        </div>
+        <div>
+            <p>165+</p>
+            <p>Years of history</p>
+        </div>
+    </section>
+    <section class="glimpses-of-glory">
+        <h2 class="title">Glimpses of Glory</h2>
+        <div class="glimpses-of-glory-gallery">
+            <img width="528px" height="376px" src="./assets/gallery/img1.jpg" alt="Image 1" loading="lazy">
+            <img width="305px" height="489px" src="./assets/gallery/img2.jpg" alt="Image 2" loading="lazy">
+            <img width="416px" height="489px" src="./assets/gallery/img3.jpg" alt="Image 3" loading="lazy">
+            <img width="528px" height="376px" src="./assets/gallery/img4.jpg" alt="Image 4" loading="lazy">
+            <img width="753px" height="264px" src="./assets/gallery/img5.jpg" alt="Image 5" loading="lazy">
+        </div>
+    </section>
+    <section id="downloads">
+        <h2 class="title">Free downloads app now!</h2>
+        <div class="downloads-buttons">
+            <a href="https://play.google.com/" target="_blank" title="Go to Google Play Store">
+                <img width="213px" height="65px" src="./assets/googleplay.svg" alt="Google Play Store">
+            </a>
+            <a href="https://appgallery.huawei.com/" target="_blank" title="Go to AppGallery Store">
+                <img width="211px" height="65px" src="./assets/appgallery.svg" alt="AppGallery Store">
+            </a>
+            <a href="https://www.apple.com/app-store/" target="_blank" title="Go to Apple App Store">
+                <img width="189px" height="65px" src="./assets/appstore.svg" alt="Apple App Store">
+            </a>
+        </div>
+    </section>
+    <section id="faqs">
+        <h2 class="title">FAQs.</h2>
+        <details>
+            <summary>Alpine Bus Journeys?</summary>
+            <p class="details-answer">Forget crowded cities! Alpine Bus Journeys are your comfy seat with panoramic
+                windows to breathtaking mountain vistas, charming villages, and air so fresh it might make you yodel
+                (please don't, unless you're outside). It's transportation with a side of unparalleled scenery (and
+                maybe a hairpin turn).</p>
+        </details>
+        <details>
+            <summary>What about seating options?</summary>
+            <p class="details-answer">Generally, you'll find comfy standard seats (great views, great value, maybe great
+                new friends) and perhaps slightly better seats with extra legroom. All offer a front-row seat to the
+                greatest show on Earth – the Alps!</p>
+        </details>
+        <details>
+            <summary>What is the Alpine Wallet?</summary>
+            <p class="details-answer">It's your digital stash of cash that makes booking bus tickets smoother than a
+                perfectly paved mountain road. Load it up and watch your travel dreams become reality faster than a bus
+                goes downhill.</p>
+        </details>
+        <details>
+            <summary>My Altitude Score?</summary>
+            <p class="details-answer">Your loyalty points for cruising the mountain roads! Higher scores might get you
+                priority boarding (less elbowing for the best window seat!) or maybe just bragging rights among fellow
+                peak-passengers who prefer four wheels.</p>
+        </details>
+        <details>
+            <summary>Why a Bus Station Fee?</summary>
+            <p class="details-answer">A small contribution to ensure the station is clean, has reasonably fresh mountain
+                air (filtered from bus fumes), and enough signs pointing you towards your bus, not away from it.
+                Sometimes covers the cost of moving rogue bicycles.</p>
+        </details>
+        <details>
+            <summary>Why are buses late?</summary>
+            <p class="details-answer">Forget crowded cities! Alpine Bus Journeys are your comfy seat with panoramic
+                windows to breathtaking mountain vistas, charming villages, and air so fresh it might make you yodel
+                (please don't, unless you're outside). It's transportation with a side of unparalleled scenery (and
+                maybe a hairpin turn).</p>
+        </details>
+        <details>
+            <summary>Peak Season Surcharge?</summary>
+            <p class="details-answer">It's the little extra you pay to enjoy the authentic experience of sharing
+                breathtaking views with a lot of your closest friends (who you haven't met yet) while strategically
+                placing your bag in the overhead compartment. Guarantees a vibrant, energetic journey!</p>
+        </details>
+    </section>
+    <section class="contacts-container">
+        <div id="contacts">
+            <h2 class="title">Contact us</h2>
+            <p class="contacts-number">+41 98765 43210</p>
+            <p class="contacts-e-mail">hello@peakpasses.eu</p>
+            <p class="contacts-address"> Alpenblick Strasse 7,<br>
+                12345 Edelweiss Town, Alps</p>
+        </div>
+    </section>
+    <div class="contacts-bg-blue"></div>
+</main>
+<footer class="footer">
+    <div class="footer-links">
+        <a class="header-logo" href="./" title="Go to homepage">
+            <svg width="73" height="34" style="margin: 7px 15px 0 0" viewBox="0 0 73 34" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M59.2163 24.5786V20.3137L56.8388 17.985L59.2303 19.3378V12.2281L50.3323 22.2163L47.6113 25.4222L51.3615 23.0116L46.9352 27.6512L46.2931 30H44.3848H40.4802H33.5049L40.4802 28.5327V25.9956V19.5777V3.49431L33.7795 13.7348H36.0542L32.6121 21.8674L29.3541 23.4939L32.1196 24.8199L31.2612 26.3138L28.935 30H25.2665H24.4466H14.3859L24.4466 29.253V25.2797L24.5119 18.2531L21.4236 18.705L24.5886 16.9879L24.6814 12.2594L17.9196 19.2773L18.288 20.9643L14.1075 24.278L16.0133 23.735L9.76091 30H6.27066H5.51648H0L6.36248 28.1088L9.55835 20.9632L13.1242 21.6868L25.2962 8.07215L30.4598 17.7102L32.3042 9.51804L39.5581 0H42.3856L45.4529 8.25277L49.3375 10.7306L50.8526 17.9356L59.2303 9.39784L62.1637 12.1666L68.4511 25.5421L73 30H61.1676H59.7997H59.2303H50.287L59.2303 29.0353V28.0559L56.1492 26.3138L59.2163 24.5786Z"
+                      fill="white"/>
+            </svg>Wonders</a>
+        <div class="footer-group">
+            <p>About</p>
+            <div class="footer-group-links">
+                <div><a href="#" title="Learn how it works">How it works</a></div>
+                <div><a href="#" title="Featured">Featured</a></div>
+                <div><a href="#" title="Partnership with us">Partnership</a></div>
+                <div><a href="#" title="Business Relation">Business Relation</a></div>
+            </div>
+        </div>
+        <div class="footer-group">
+            <p>Community</p>
+            <div class="footer-group-links">
+                <div><a href="#" title="All the Events">Events</a></div>
+                <div><a href="#" title="Our Blog">Blog</a></div>
+                <div><a href="#" title="Our Podcast">Podcast</a></div>
+                <div><a href="#" title="Invite a friend">Invite a friend</a></div>
+            </div>
+        </div>
+        <div class="footer-group">
+            <p>Socials</p>
+            <div class="footer-group-links">
+                <div><a href="https://discord.com/" target="_blank" title="Go to our Discord channel">Discord</a></div>
+                <div><a href="https://www.instagram.com/" target="_blank" title="Go to our Instagram page">Instagram</a></div>
+                <div><a href="https://x.com/" target="_blank" title="Go to our X page">X</a></div>
+                <div><a href="https://www.facebook.com/" target="_blank" title="Go to our Facebook page">Facebook</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-text">
+        English: © 2025 Peak Passages. <br class="line-separator">All Rights Reserved (Especially the Window Seats).
+    </div>
+</footer>
+<!-- Модальное окно формы авторизации -->
+<dialog id="signup-modal">
+    <form id="signup-modal-form" class="modal-form" method="post">
+        <p>Login to your account</p>
+        <input type="text" id="signup-username" name="username" autocomplete="name" maxlength="50" placeholder="Enter your username" required>
+        <input type="password" id="signup-password" name="password" autocomplete="current-password" placeholder="Enter your password" required>
+        <button id="signup-login-button" type="submit">Log in</button>
+    </form>
+    <div id="signup-modal-result" class="modal-form">
+        <p id="signup-welcome-text"></p>
+        <button id="signup-ok-button" type="button">OK</button>
+    </div>
+</dialog>
+<!-- Модальное окно формы ошибок дат и итоговой отправки формы -->
+<dialog id="date-error-modal">
+    <div id="date-error-message" class="modal-form">
+        <p id="date-error-text"></p>
+        <button id="error-ok-button" type="button">OK</button>
+    </div>
+</dialog>
 </body>
 </html>
